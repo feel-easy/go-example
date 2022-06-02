@@ -33,6 +33,8 @@ func main() {
 	db.First(&product, 1) // 根据整型主键查找
 	fmt.Println(product)
 	db.First(&product, "code = ?", "D42") // 查找 code 字段值为 D42 的记录
+	var products []Product
+	db.Where("code in (?)", []string{"D42", "hhh"}).Find(&products)
 
 	// Update - 将 product 的 price 更新为 200
 	db.Model(&product).Update("Price", 200)
@@ -42,4 +44,5 @@ func main() {
 
 	// Delete - 删除 product
 	db.Delete(&product, 1)
+
 }

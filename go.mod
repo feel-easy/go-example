@@ -8,7 +8,8 @@ require (
 	github.com/mattn/go-runewidth v0.0.13 // indirect
 	github.com/mitchellh/mapstructure v1.4.3
 	github.com/scylladb/termtables v1.0.0
-	github.com/tuotoo/qrcode v0.0.0-20220425170535-52ccc2bebf5d // indirect
+	github.com/tuotoo/qrcode v0.0.0-20220425170535-52ccc2bebf5d
+	google.golang.org/protobuf v1.28.0
 	gorm.io/driver/mysql v1.3.2
 	gorm.io/gorm v1.23.3
 )

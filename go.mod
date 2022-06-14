@@ -7,6 +7,7 @@ require (
 	github.com/lib/pq v1.10.5
 	github.com/mattn/go-runewidth v0.0.13 // indirect
 	github.com/mitchellh/mapstructure v1.4.3
+	github.com/rs/xid v1.4.0 // indirect
 	github.com/scylladb/termtables v1.0.0
 	github.com/tuotoo/qrcode v0.0.0-20220425170535-52ccc2bebf5d
 	google.golang.org/protobuf v1.28.0

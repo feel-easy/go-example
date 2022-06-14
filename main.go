@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"path"
 	"strconv"
 
 	"google.golang.org/protobuf/types/known/wrapperspb"
@@ -14,6 +15,7 @@ type Item struct {
 }
 
 func main() {
+	fmt.Println(path.Ext("aaa.zip"))
 	b := 0.8
 	c := int(1 << 30 * b)
 	d := float64(c) / (1 << 30)

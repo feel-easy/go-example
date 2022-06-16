@@ -29,4 +29,5 @@ func main() {
 	cc := Item{}
 
 	fmt.Println(cc.Enabled.GetValue())
+	fmt.Printf("%q", bb)
 }

@@ -4,14 +4,26 @@ import (
 	"fmt"
 	"path"
 	"strconv"
+	"time"
 
 	"google.golang.org/protobuf/types/known/wrapperspb"
 )
 
 type Item struct {
+	Name    string
 	List    []int
 	B       bool
 	Enabled *wrapperspb.BoolValue
+}
+
+type item Item
+
+type Aa string
+
+func (a Aa) ToItem() *Item {
+	return &Item{
+		Name: string(a),
+	}
 }
 
 func main() {
@@ -26,8 +38,20 @@ func main() {
 	}
 	bb := map[string]string{"a": "1", "b": "2"}
 	fmt.Println(bb["c"])
-	cc := Item{}
+	cc := Item{Name: "zhangsan"}
+	dd := cc.Name
+	cc.Name = ""
 
-	fmt.Println(cc.Enabled.GetValue())
-	fmt.Printf("%q", bb)
+	fmt.Println(dd)
+	fmt.Printf("%q", time.Now().UTC().Unix())
+
+	ee := Aa("ssss")
+	fmt.Printf("%q", ee.ToItem())
+
+	ff := &item{
+		Name: "name",
+	}
+	fmt.Printf("%q", Item(*ff))
+	gg := make(map[string]bool)
+	fmt.Println(gg["bb"])
 }

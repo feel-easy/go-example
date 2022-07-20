@@ -5,6 +5,7 @@ go 1.16
 require (
 	github.com/BurntSushi/toml v1.1.0 // indirect
 	github.com/apcera/termtables v0.0.0-20170405184538-bcbc5dc54055 // indirect
+	github.com/buger/goterm v1.0.4
 	github.com/gizak/termui/v3 v3.1.0
 	github.com/gorilla/websocket v1.5.0
 	github.com/lib/pq v1.10.5

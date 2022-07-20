@@ -27,4 +27,8 @@ func main() {
 	cc := Item{}
 
 	fmt.Println(cc.Enabled.GetValue())
+	dd := []int{1, 2, 3}
+	fmt.Println(dd[len(dd)-1:])
+	fmt.Println(dd[:len(dd)-1])
+	fmt.Println(dd[len(dd)-1])
 }

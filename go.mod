@@ -13,6 +13,7 @@ require (
 	github.com/mitchellh/go-wordwrap v1.0.1 // indirect
 	github.com/mitchellh/mapstructure v1.4.3
 	github.com/nsf/termbox-go v1.1.1 // indirect
+	github.com/olivere/elastic/v7 v7.0.32
 	github.com/rs/xid v1.4.0
 	github.com/scylladb/termtables v1.0.0
 	github.com/tuotoo/qrcode v0.0.0-20220425170535-52ccc2bebf5d

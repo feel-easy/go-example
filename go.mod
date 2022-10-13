@@ -16,6 +16,7 @@ require (
 	github.com/olivere/elastic/v7 v7.0.32
 	github.com/rs/xid v1.4.0
 	github.com/scylladb/termtables v1.0.0
+	github.com/shopspring/decimal v1.3.1 // indirect
 	github.com/tuotoo/qrcode v0.0.0-20220425170535-52ccc2bebf5d
 	go.uber.org/zap v1.21.0
 	google.golang.org/protobuf v1.28.0

@@ -34,8 +34,10 @@ func main() {
 	// if ok := demo(); false && ok {
 	// 	fmt.Println("bbbb")
 	// }
+	var sts []string
 	for _, i := range a {
 		j := string(i)
+		sts = append(sts, j)
 		flag := false
 		switch j {
 		case "6":
@@ -46,8 +48,8 @@ func main() {
 		if flag {
 			break
 		}
-
 	}
+	fmt.Println(sts)
 }
 
 // func main() {

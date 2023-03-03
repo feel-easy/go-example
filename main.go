@@ -29,28 +29,42 @@ func demo() bool {
 }
 
 func main() {
-	a := "17611111111"
-	// fmt.Println(a[len(a)-4:])
-	// if ok := demo(); false && ok {
-	// 	fmt.Println("bbbb")
-	// }
-	var sts []string
-	for _, i := range a {
-		j := string(i)
-		sts = append(sts, j)
-		flag := false
-		switch j {
-		case "6":
-			flag = true
-
-		}
-		fmt.Println(j)
-		if flag {
-			break
-		}
-	}
-	fmt.Println(sts)
+	aa := map[string][]string{"aa": {"aa"}}
+	fmt.Printf("%v", aa["a1a"])
+	fmt.Print(FormatMobileStar("13933730122"))
 }
+
+func FormatMobileStar(mobile string) string {
+	if len(mobile) <= 10 {
+		return mobile
+	}
+
+	return fmt.Sprintf("%s****%s", mobile[:3], mobile[7:])
+}
+
+// func main() {
+// 	a := "17611111111"
+// 	// fmt.Println(a[len(a)-4:])
+// 	// if ok := demo(); false && ok {
+// 	// 	fmt.Println("bbbb")
+// 	// }
+// 	var sts []string
+// 	for _, i := range a {
+// 		j := string(i)
+// 		sts = append(sts, j)
+// 		flag := false
+// 		switch j {
+// 		case "6":
+// 			flag = true
+
+// 		}
+// 		fmt.Println(j)
+// 		if flag {
+// 			break
+// 		}
+// 	}
+// 	fmt.Println(sts)
+// }
 
 // func main() {
 // 	fmt.Println(path.Ext("aaa.zip"))

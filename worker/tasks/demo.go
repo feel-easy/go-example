@@ -9,7 +9,7 @@ import (
 
 func (w *Worker) demo(ctx context.Context) {
 	proc := demoProc{}
-	if err := proc.do(); err != nil {
+	if err := proc.do(ctx); err != nil {
 		fmt.Println(err.Error())
 	}
 }
@@ -17,7 +17,7 @@ func (w *Worker) demo(ctx context.Context) {
 type demoProc struct {
 }
 
-func (proc *demoProc) do() error {
+func (proc *demoProc) do(ctx context.Context) error {
 	var wg sync.WaitGroup
 	for i := 0; i < 10; i++ {
 		wg.Add(1)

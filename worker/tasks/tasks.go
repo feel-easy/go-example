@@ -28,10 +28,8 @@ loop:
 		case <-worker.close:
 			break loop
 		case <-ticker:
+			worker.demo(ctx)
 		}
-		c, cancel := context.WithTimeout(ctx, timeout)
-		defer cancel()
-		worker.demo(c)
 	}
 }
 

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SyncPlayer</title>
+</head>
+<body>
+    <video id="videoPlayer" src="video.mp4" controls></video>
+    
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script>
+        var socket = io.connect('http://localhost:3000');
+        var videoPlayer = document.getElementById('videoPlayer');
+
+        var playing = false;
+        var seekTime = 0;
+
+        // 发送当前播放状态和进度到服务端
+        function sync() {
+            socket.emit('sync', {playing: playing, seekTime: videoPlayer.currentTime});
+        }
+
+        // 接收服务端更新的播放状态和进度
+        socket.on('sync', function (data) {
+            // 更新本地播放状态和进度
+            playing = data.playing;
+            seekTime = data.seekTime;
+
+            // 如果另一个浏览器正在播放电影，则在本地开始播放
+            if (playing) {
+                videoPlayer.play();
+            } else {
+                videoPlayer.pause();
+            }
+
+            // 跳转到同步时间
+            videoPlayer.currentTime = seekTime;
+        });
+
+        // 播放事件处理程序
+        videoPlayer.addEventListener('play', function() {
+            playing = true;
+            sync();
+        }, false);
+
+        // 暂停事件处理程序
+        videoPlayer.addEventListener('pause', function() {
+            playing = false;
+            sync();
+        }, false);
+
+        // 时间更新事件处理程序
+        videoPlayer.addEventListener('timeupdate', function() {
+            // 只有当前播放时间与上次同步时间差大于1s时才发送同步更新
+            if (Math.abs(videoPlayer.currentTime - seekTime) > 1) {
+                sync();
+            }
+        }, false);
+    </script>
+</body>
+</html>

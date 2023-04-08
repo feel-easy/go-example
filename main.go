@@ -1,11 +1,20 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 
 	"google.golang.org/protobuf/types/known/wrapperspb"
 )
 
+type Body struct {
+	ItemID string `json:"item_id"`
+	Filter struct {
+		Sort struct {
+			CommentSmartHot string `json:"comment_smart_hot"`
+		} `json:"sort"`
+	} `json:"filter"`
+}
 type Item struct {
 	Name    string
 	List    []int
@@ -32,6 +41,16 @@ func main() {
 	aa := map[string][]string{"aa": {"aa"}}
 	fmt.Printf("%v", aa["a1a"])
 	fmt.Print(FormatMobileStar("13933730122"))
+	ret, _ := json.Marshal(map[string]any{
+		"item_id": 121,
+		"filter": map[string]any{
+			"sort": map[string]string{
+				"comment_smart_hot": "2",
+			},
+		},
+	})
+
+	fmt.Printf("%v", string(ret))
 }
 
 func FormatMobileStar(mobile string) string {

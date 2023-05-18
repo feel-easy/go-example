@@ -5,7 +5,9 @@ go 1.16
 require (
 	github.com/BurntSushi/toml v1.1.0 // indirect
 	github.com/apcera/termtables v0.0.0-20170405184538-bcbc5dc54055 // indirect
+	github.com/appleboy/gin-jwt/v2 v2.9.1
 	github.com/buger/goterm v1.0.4
+	github.com/gin-gonic/gin v1.9.0
 	github.com/gizak/termui/v3 v3.1.0
 	github.com/google/uuid v1.3.0
 	github.com/gorilla/websocket v1.5.0
@@ -20,7 +22,7 @@ require (
 	github.com/shopspring/decimal v1.3.1
 	github.com/tuotoo/qrcode v0.0.0-20220425170535-52ccc2bebf5d
 	go.uber.org/zap v1.21.0
-	google.golang.org/protobuf v1.28.0
+	google.golang.org/protobuf v1.28.1
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0
 	gorm.io/driver/mysql v1.3.2
 	gorm.io/gorm v1.23.3

@@ -7,9 +7,9 @@ import (
 	"time"
 )
 
-func (w *Worker) demo(ctx context.Context) {
+func (w *Worker) demo(ctx context.Context, paymentOrder string) {
 	proc := demoProc{}
-	if err := proc.do(ctx); err != nil {
+	if err := proc.do(ctx, paymentOrder); err != nil {
 		fmt.Println(err.Error())
 	}
 }
@@ -17,13 +17,17 @@ func (w *Worker) demo(ctx context.Context) {
 type demoProc struct {
 }
 
-func (proc *demoProc) do(ctx context.Context) error {
+func (proc *demoProc) do(ctx context.Context, paymentOrder string) error {
 	var wg sync.WaitGroup
 	for i := 0; i < 10; i++ {
 		wg.Add(1)
 		go func(j int) {
 			defer wg.Done()
-			proc.doSameThing(j)
+			go proc.doSameThing(j)
+			select {
+			case <-ctx.Done():
+
+			}
 		}(i)
 	}
 	wg.Wait()

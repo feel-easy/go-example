@@ -8,7 +8,10 @@
       "name": "Launch Package",
       "type": "go",
       "mode": "debug",
-      "program": "${workspaceFolder}/leetcode/letterCombinations/main.go",
+      "program": "${workspaceFolder}/jwt/main.go",
+      "env": {
+        "JWT_SECRET":"46d8d729998ebe53c34e686e4dc608a76390f771893d4a50a8d0f85b2c648184ca419d5277e4124bb5df5a4c39c0bb80f6b4271fea478c389c06137d73f2db7a"
+      },
       "cwd": "${workspaceRoot}"
     }
   ]

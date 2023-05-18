@@ -12,18 +12,18 @@ import (
 )
 
 func main() {
-	worker := tasks.NewWorker()
+	tasks.InitWorker()
 	var wg sync.WaitGroup
 	wg.Add(1)
 	go func() {
 		defer wg.Done()
-		worker.Run(context.Background())
+		tasks.Run(context.Background())
 	}()
 
 	sigs := make(chan os.Signal, 1)
 	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
 	s := <-sigs
-	worker.Shutdown()
+	tasks.Shutdown()
 	fmt.Printf("Caught signal: %v\n", s)
 	wg.Wait()
 }

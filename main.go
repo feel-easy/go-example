@@ -38,6 +38,18 @@ func demo() bool {
 }
 
 func main() {
+	switch num := 1; num {
+	case 1:
+		fmt.Println("Case 1")
+		fallthrough
+	case 2:
+		fmt.Println("Case 2")
+		fallthrough
+	case 3:
+		fmt.Println("Case 3")
+	default:
+		fmt.Println("Default case")
+	}
 	aa := map[string][]string{"aa": {"aa"}}
 	fmt.Printf("%v", aa["a1a"])
 	fmt.Print(FormatMobileStar("13933730122"))

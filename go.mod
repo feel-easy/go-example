@@ -5,6 +5,7 @@ go 1.18
 require (
 	github.com/buger/goterm v1.0.4
 	github.com/gizak/termui/v3 v3.1.0
+	github.com/google/uuid v1.3.0
 	github.com/gorilla/websocket v1.5.0
 	github.com/lib/pq v1.10.5
 	github.com/mitchellh/mapstructure v1.4.3
@@ -13,10 +14,13 @@ require (
 	github.com/rs/xid v1.4.0
 	github.com/scylladb/termtables v1.0.0
 	github.com/shopspring/decimal v1.3.1
+	github.com/stretchr/testify v1.8.1 // indirect
 	github.com/tuotoo/qrcode v0.0.0-20220425170535-52ccc2bebf5d
 	go.uber.org/zap v1.21.0
-	google.golang.org/protobuf v1.28.0
+	golang.org/x/sys v0.5.0 // indirect
+	google.golang.org/protobuf v1.28.1
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0
+	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gorm.io/driver/mysql v1.3.2
 	gorm.io/gorm v1.23.3
 )
@@ -25,7 +29,6 @@ require (
 	github.com/BurntSushi/toml v1.1.0 // indirect
 	github.com/apcera/termtables v0.0.0-20170405184538-bcbc5dc54055 // indirect
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
-	github.com/google/uuid v1.3.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.4 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
@@ -37,6 +40,5 @@ require (
 	github.com/rivo/uniseg v0.2.0 // indirect
 	go.uber.org/atomic v1.7.0 // indirect
 	go.uber.org/multierr v1.6.0 // indirect
-	golang.org/x/sys v0.0.0-20210510120138-977fb7262007 // indirect
 	rsc.io/qr v0.2.0 // indirect
 )

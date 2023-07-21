@@ -25,7 +25,7 @@ type Employee struct {
 func init() {
 	errorlog := log.New(os.Stdout, "APP", log.LstdFlags)
 	var err error
-	client, err = elastic.NewClient(elastic.SetErrorLog(errorlog), elastic.SetURL(host))
+	client, err = elastic.NewClient(elastic.SetErrorLog(errorlog), elastic.SetURL(host), elastic.SetSniff(false))
 	if err != nil {
 		panic(err)
 	}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="downloadFile('')"></button>
+</body>
+<script>
+
+function DownLoad(url){
+  axios.post(url, {
+    
+  }, {
+  responseType: 'blob'
+  }).then((res) => {
+    downloadFile(res)
+  }).catch((err) => {
+    console.log(err.message);
+  });
+}
+  // 文件流转blob对象下载
+const downloadFile = (res, fileName) => {
+	// Blob
+	let data = null;
+	if (res.contructor === Blob) {
+		data = res;
+	} else {
+		data = res.data;
+	}
+
+	// 文件类型
+	let type = data.type;
+
+	// 如果有自定义的文件名则采用自定义的文件名，没有则采用后台返回的文件名
+	// 从content-disposition中读取后台返回的文件名
+	if ( !fileName && res.headers && res.headers['content-disposition'] ) {
+		let disposition = res.headers['content-disposition'];
+		if(disposition && disposition.constructor === String ){
+			let dispositionList = disposition.split(';');
+			dispositionList.forEach((item) => {
+				let keyAndVal = item.split('=');
+				if (keyAndVal[0] === 'filename' && keyAndVal[1]) {
+					fileName = keyAndVal[1];
+				}
+			});
+		}
+	}
+       // 如果后台没有定义的文件名，前端也没有传入的，则随机命名一个文件名
+	fileName = fileName || Math.random().toString(16).slice(2) ;
+
+	// 文件流
+	let blob = new Blob([data], { type: type });
+	// 获取heads中的filename文件名
+	let downloadElement = document.createElement('a');
+	// 创建下载的链接
+	let href = window.URL.createObjectURL(blob);
+	downloadElement.href = href;
+	// 下载后文件名
+	downloadElement.download = fileName;
+	document.body.appendChild(downloadElement);
+	// 点击下载
+	downloadElement.click();
+	// 下载完成移除元素
+	document.body.removeChild(downloadElement);
+	// 释放掉blob对象
+	window.URL.revokeObjectURL(href);
+};
+
+</script>
+</html>
